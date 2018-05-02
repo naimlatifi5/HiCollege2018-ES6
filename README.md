@@ -1,2 +1,2 @@
-#New features of ECMAScript 2015 (ES6)
+# New features of ECMAScript 2015 (ES6)
   - More content coming soon...
