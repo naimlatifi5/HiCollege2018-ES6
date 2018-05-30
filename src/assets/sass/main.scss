@@ -1,6 +1,5 @@
 @import 'js-course';
 @import 'module1';
-@import 'axios';
 
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -18,13 +17,12 @@ section h3 {
 }
 
 .list-container {
-  ul {
-    border: 0;
-    list-style: none;
-    padding: 0;
-    margin: 0 ;
-  }
-
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  border: 0;
+  list-style: none;
+  padding: 0;
   li {
     padding: 10px;
     text-align: center;

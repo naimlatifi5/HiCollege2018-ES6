@@ -33,7 +33,26 @@ function letVariableScopeES6(){
 }
 letVariableScopeES6();
 
+  var a = "car";
+  if(true) {
+    var a = 4;
+    console.log("What is a inside a block ", a);
+  }
+  console.log("What is a ", a);
+  console.log("clicked");
 
+  console.log("SETTIMEOUT what does it print");
+  for (var i = 1; i < 5; i++){
+  setTimeout(() => {
+    console.log("Var declartion", i);
+  }, 1000);
+  }
+  // block scope
+  for (let i = 1; i < 5; i++){
+   setTimeout(() => {
+     console.log("Let declaration", i);
+   }, 1000);
+   }
 
 function varVariableES5(){
     if(true){
