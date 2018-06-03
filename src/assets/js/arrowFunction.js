@@ -3,12 +3,11 @@
 *                                           *
 **********************************************/
 console.log("============ Arrow function ============");
-// ES5
+// ES5 function expression declaration
 var multipleNumber = function(num1, num2){
     return num1 * num2;
 };
 console.log('Multiplication is = ', multipleNumber(3,3));
-
 // ES6- shorter syntax , no need for function name and return value
 // expression after arrow is always return
 // Note that if you have only one arguments in function with the arrow function you can ommit the parentheses
@@ -18,11 +17,11 @@ console.log('Multiplication is = ', multipleNumber(3,3));
 
 let multipeNumberES6 = (num1, num2) => num1 * num2;
   console.log("Multiplication ES6 = " , multipeNumberES6(4,4));
-
 // whenever you have one expression you do not need curly braces see above otherwise if your code has multople lines with expression then use return and curly braces
 let multipleNumberES6 = (num1, num2) => {
   return num1 * num2;
 }
+
 
 // ES6 arrow function -if there is no parameter then curly braces are needed around function body
 let getDocument = _ => {
@@ -31,7 +30,6 @@ let getDocument = _ => {
 getDocument();
 
 // arrow functions on arrays
-
 const phones = [
   { name: 'iphone',
     price: '6000kr'
@@ -77,79 +75,56 @@ console.log(typeof mapWithPricePhones); // object
 let filterByPrice = phones.filter(item => item.price == '3000kr');
 console.log("Filtered by price arrow function ES6 " , filterByPrice);
 
-// expression function
-var helloFunction = function(){
-    console.log("function expression with ES5");
-};
-
-// arrow function only on anonymous functions
-console.log(helloFunction());
-
-let helloFunctionES6 = () => {
-  console.log("Function expression with IE6");
-};
-console.log(helloFunctionES6());
-
 
 const myModuleExample = {
-  hi : 'Hello data here',
-  parseData : function(){
+  hi:'Hello data here',
+  parseData:function(){
 
     this.greeting(function(returnData){
        console.log(returnData);
        console.log(this); // window
        //console.log(this.hi); // undefined
     });
-
   },
-  greeting : function(callback){
+  greeting:function(callback){
     callback();
   }
 };
 
 const myModuleExampleES6 = {
-  hi: 'Hello ES6 and arrow function',
-  parseData : function() { // not arrow function because it redefined the scope of this to window global object
+  hi:'Hello ES6 and arrow function',
+  parseData:function() { // not arrow function because it redefined the scope of this to window global object
     this.greeting((hellothere) => { // arrow will have as parent object so this is object
         console.log('Not global anymore', this.hi);
     });
   },
-
-  greeting: function(callback){
+  greeting:function(callback){
     callback();
   }
 };
 
-// if used _ there is a function arrow without parameters
-const myFunctionWithoutParameters = _ =>{
-   console.log("hello function");
-};
-
+console.log(myModuleExampleES6.parseData());
+console.log(myModuleExample.parseData());
 
 let objectI = {
-   notThis: () => {
+   notThis:() => {
      console.log(this); // window, never use arrow function inside object methods
    }
 };
-
-
-console.log(myModuleExampleES6.parseData());
-console.log(myModuleExample.someData);
-console.log(myModuleExample.parseData());
 
 
 
 console.log("=============== this with arrow function ===============");
 // ES5
 var objectES5 = {
-  name: "Print after 2 seconds",
+  name: "ES5-Print after 2 seconds",
 
   printWithDelay: function(){
     //var self = this; // work around
     window.setTimeout(function(){ // function creates their own this
-      this.textToPrint(); // change ti that
-    // bind(this) -- to skip that and this
-  }.bind(this), 2000); // print after two seconds or bind()
+        this.textToPrint(); // change ti that
+      // bind(this) -- to skip that and this
+    }.bind(this), 1000); // print after two seconds or bind()
   },
 
   textToPrint: function(){
@@ -157,10 +132,12 @@ var objectES5 = {
  }
 }
 
-//objectES5.printWithDelay();
+objectES5.printWithDelay();
+
+
 // ES6 and arrow function
 const objectES6 = {
-  name : "Print me with arrow function after 2 sec",
+  name : "ES6-Print me after 2 seconds",
   printWithDelay :  function(){
     window.setTimeout(() => {
       this.textToPrint();
@@ -179,7 +156,6 @@ const objectButtonES6 = {
    endAnimation: function(){
      this.button.classList.add('active');
      setTimeout(() => { // lexical binding  "this" is set to function defined not used.
-       this.button.classList.remove('is-open');
        this.button.classList.remove('active');
        this.button.classList.add('active-again');
        console.log("removed class is-open and active this ES6 ");
@@ -189,7 +165,7 @@ const objectButtonES6 = {
    buttonClick: function(){
      // sorrounding scope here is buttonclick methods where this it refers to the object
       this.button.onclick = () => {
-        console.log("yes gott button name" , this.buttonName);
+        console.log("yes got button name" , this.buttonName);
       };
    }
 }
@@ -203,14 +179,12 @@ const objectButtonES5= {
    endAnimation: function(){
      this.button.classList.add('active');
       window.setTimeout(function() {
-       this.button.classList.remove('is-open');
        this.button.classList.remove('active');
        this.button.classList.add('active-again');
        console.log("removed class is-open and active with ES5")
      }.bind(this), 4000); // this does not refers to the object method endAnimation
                // overcome the problem use bind
    }
-
 }
 
 

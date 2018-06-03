@@ -18,6 +18,7 @@ function f(){
   }
   //console.log(temp); // temp is not defined because const are scoped to the block level
 }
+// invoke the function
 f();
 
 function letVariableScopeES6(){
@@ -29,30 +30,11 @@ function letVariableScopeES6(){
      console.log(temp);
 
    }
+   // temp outside  of the block is not defined
    //console.log(temp); // error blocked scoped is not defined
 }
 letVariableScopeES6();
 
-  var a = "car";
-  if(true) {
-    var a = 4;
-    console.log("What is a inside a block ", a);
-  }
-  console.log("What is a ", a);
-  console.log("clicked");
-
-  console.log("SETTIMEOUT what does it print");
-  for (var i = 1; i < 5; i++){
-  setTimeout(() => {
-    console.log("Var declartion", i);
-  }, 1000);
-  }
-  // block scope
-  for (let i = 1; i < 5; i++){
-   setTimeout(() => {
-     console.log("Let declaration", i);
-   }, 1000);
-   }
 
 function varVariableES5(){
     if(true){
@@ -62,6 +44,35 @@ function varVariableES5(){
 }
 varVariableES5();
 
+  var a = "car";
+  if(true) {
+    var a = 4;
+    console.log("What is a inside a block ", a);
+  }
+  console.log("What is a ", a);
+
+
+  function exampleScenarioES5(){
+    for (var i = 1; i < 5; i++){
+      //(function(x){ add anonoymous function where we create a closure for setTimeout function
+        setTimeout(function() {
+          console.log("Scenario with ES5 what does it print after 1 sec", i); // changed to x when added annonymous function
+          }, 1000);
+      //}(i))
+    }
+  }
+
+ function exampleScenarioES6(){
+   // block scope
+   for (let i = 1; i < 5; i++){
+     setTimeout(() => {
+       console.log("Scenario with ES6 what does it print after 1 sec", i);
+     }, 1000);
+   }
+ }
+
+exampleScenarioES5();
+exampleScenarioES6();
 
 // var in for loop
 function varInForLoopES6(){
@@ -71,9 +82,7 @@ function varInForLoopES6(){
   for(var i of myArray){
      arr.push(() => i);
   }
-  console.log(arr.map(x => x())); // [3,3,3] // because var is hoisted inside for loop
-
-
+  console.log("What is my array", arr.map(x => x())); // [3,3,3] // because var is hoisted inside for loop
 }
 varInForLoopES6();
 
@@ -89,17 +98,16 @@ function letInForLoopES6(){
   console.log("My array data ", arr);
 }
 
-// loop through programming languages
 letInForLoopES6();
-// constans in object declaration
+
 
 // example with let inside for loop block level
 function createThreeFunctionInArray(){
    var arr = [];
    for(var i = 0; i<3; i++ ) {
-     let j =i; // this fix the problem with hoisiting and closure variables.
+      //let j =i; // this fix the problem with hoisiting and closure variables.
        arr.push(function(){
-        console.log(j);
+        console.log("My array elements are ", i);
       });
    }
    return arr;
@@ -125,5 +133,4 @@ console.log(myModule);
 //  hello : 'hello',
 //  goodbye: 'good'
 //};
-
 //console.log(myModue);
