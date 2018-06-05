@@ -186,11 +186,6 @@ const objectButtonES5= {
                // overcome the problem use bind
    }
 }
-
-
-
-
-
 console.log("****************** End of arrow function **************");
 
 console.log("================ Where not to use arrow function ============");
@@ -208,8 +203,6 @@ objectButtonES6.button.addEventListener('click',  (e) => {
    e.srcElement.style.fontSize = "50px";
 
 });
-
-
 
 
 // case when arrow function would not work in object methods
@@ -247,12 +240,5 @@ Profile1.prototype.displayNameArrowFunction = () => {
     console.log(window === this);
 }
 
-
 var secondProfile1 = new Profile1("With Arrow function");
 console.log(secondProfile1.displayNameArrowFunction());
-
-//console.log(firstProfile);
-// IIFE immedially invoked funciton expresion
-    {
-
-    }

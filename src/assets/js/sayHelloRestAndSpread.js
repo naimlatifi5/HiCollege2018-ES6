@@ -9,8 +9,8 @@ params('Naim', 'Latifi'); // Naim Latifi undefined
 
 
 function defaultParamsBirthday(name, lastName, birthday){
-       birthday = birthday || '19860522';
-       console.log("Info:" + name + " " +  lastName +  " " +  birthday);
+  birthday = birthday || '19860522';
+  console.log("Info:" + name + " " +  lastName +  " " +  birthday);
 }
 
 //defaultParamsBirthday('Naim', 'Latifi');
@@ -106,10 +106,6 @@ console.log("ES6 with parameter" , numberAdditions(4,5));
   }
 
  gatherTheRestParameter("hello there Rest", 'nice to have you in array', 'cool stuff here');
-
-
-
-
 
 
 console.log("============ Spread operator ===============");
