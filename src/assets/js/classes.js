@@ -4,7 +4,6 @@ console.log("*********** From cunstructors to classes ***************");
     function Person(name){
        this.name = `Hello from constructor function ${name}`;
     }
-
     Person.prototype.displayName = function(){
       return this.name;
     }
@@ -14,27 +13,25 @@ console.log("*********** From cunstructors to classes ***************");
     console.log("Is instance of Person ? ", person1 instanceof Person);
 
 
-
-
 console.log("============== Classes ==============");
-// class declaration
-class Person1 {
-  // equivalent to the constructor function Person
-  constructor(name) {
-    this.name = `Hello from classes ES6 ${name}`;
-  }
+  // class declaration
+  class Person1 {
+    // equivalent to the constructor function Person
+    constructor(name) {
+      this.name = `Hello from classes ES6 ${name}`;
+    }
 
-  displayName() {
-    return this.name;
+    displayName() {
+      return this.name;
+    }
   }
-}
 
 // classes are not hoisted, calling person2 before class declaration throws an error.
 
-let person2 = new Person1('Naim');
-console.log(person2.displayName());
-console.log(typeof Person1) // function
-console.log("Is it instance of class Person1 ?" , person2 instanceof Person1);
+  let person2 = new Person1('Naim');
+  console.log(person2.displayName());
+  console.log(typeof Person1) // function
+  console.log("Is it instance of class Person1 ?" , person2 instanceof Person1);
 
 
 // similarly to function declaration there can be two kinds of class declaration ; class expression and class declaration
@@ -62,7 +59,6 @@ console.dir(myObjecClass.getClassName());
 console.log("===============Inheritance=============");
 
 class Father1 {
-
   constructor(name){
   this.fatherName = "Anders";
   this.name = name;
@@ -93,7 +89,6 @@ class Child3 extends Father1 {
     getChildAge() {
       return this.age;
     }
-
 }
 
 console.log("child")

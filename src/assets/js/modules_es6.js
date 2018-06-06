@@ -11,15 +11,13 @@ var nameSpace = nameSpace || {};
   console.log(nameSpace);
   console.log(nameSpace.module1);
 
+
 console.log("============ ES6 modules ============");
 import {couponCodes} from './helpers_es6';
 console.log("couponCodes example imported here " , couponCodes);
-
 import {helloWorld} from './helpers_es6';
 console.log(helloWorld());
-
  // Name binding are const and we cannot create another variable with the same name like let helloWorld => throws an erro
-
 
 // we can also import the complete module
 import * as helper from  './helpers_es6';
@@ -34,9 +32,5 @@ import { addTax, discountPrice } from './helpers_es6';
 
 
  // we can rename the exports functions like
-
  import {helloWorld as myHelloWorld} from './helpers_es6';
-
  console.log(myHelloWorld());
-
- 
