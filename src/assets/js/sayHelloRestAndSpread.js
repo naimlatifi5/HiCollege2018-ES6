@@ -1,4 +1,4 @@
-console.log("================= Default parameters in ES6 ================");
+console.log("========== ES5 default parameters ===========")
 function params(name, lastName, birthday){
   console.log("Info : "  + name + lastName + birthday);
 }
@@ -7,40 +7,27 @@ params ('Naim', 'Latifi', '8605225393');
 // default parameter if not givem
 params('Naim', 'Latifi'); // Naim Latifi undefined
 
-
-function defaultParamsBirthday(name, lastName, birthday){
+function defaultParamsBirthdayES5(name, lastName, birthday){
   birthday = birthday || '19860522';
   console.log("Info:" + name + " " +  lastName +  " " +  birthday);
 }
 
-//defaultParamsBirthday('Naim', 'Latifi');
-defaultParamsBirthday('Naim', 'Latifi', '860522');
-
+//defaultParamsBirthdayES5('Naim', 'Latifi');
+defaultParamsBirthdayES5('Naim', 'Latifi', '860522');
 
 function defaultParamsName(name , lastName, birthday){
    let setName  = name ? name : 'Naim';
    console.log(setName + lastName + birthday);
 }
-
 defaultParamsName('Latifi', '860522');
 
+console.log("========== ES6 default parameters =============");
 // ES6
 function defaultParamsBirthdayES6 (name , lastName, birthday = '19860522'){
    console.log(name , + '' + lastName + ' ' + birthday);
 }
 defaultParamsBirthdayES6('Naim', 'Latifi');
 
-// example2
-function helloThere(sayHi){
-    sayHi = sayHi || 'Hello';
-    console.log(sayHi);
-  }
-
-  function helloThereES6(sayHi='Hello ES6 parameter') {
-    console.log(sayHi);
-  }
-
-  // example3
 
   function numberAdditions(num1, num2){
     num1 = num1 || 0;
@@ -65,7 +52,8 @@ console.log("ES6 with parameter" , numberAdditions(4,5));
 **********************************************/
 
   console.log("========== Rest and spread ES5 vs ES6 ===========");
-  // ES5
+  // ES5;
+  console.log("======= ES5 handling arguments =========");
   function logAllArguments(){
     console.log("Arguments in function log all argument ", arguments);
     console.log("type of arguments " , typeof arguments); // they are like array object but not real array and does not support methods and properties for an array
@@ -73,20 +61,23 @@ console.log("ES6 with parameter" , numberAdditions(4,5));
         console.log(arguments[i]);
      }
      console.log("we have ", arguments.length , "arguments");
-     // let's try to use forEach method to map element
-     //
+     //let's try to use forEach method to map element
+      // work around to make forEach work Array.prototype.forEach.call(arguments , function(){})
       //arguments.forEach((val, index) => { // type error because it does not contain array methods thus ew have to come work around and slplice to array
-      // console.log(val);
+      //console.log(val);
      //});
 
      let argumentsAsRealArray = Array.prototype.slice.call(arguments);
-     console.log("Hello array arguents", argumentsAsRealArray);
+     console.log("Hello array arguments", argumentsAsRealArray);
      argumentsAsRealArray.forEach( (val, index) => {
        console.log("Value is ", val);
        console.log("Index is ", index);
      });
   }
+  logAllArguments('naim', 'latifi');
 
+
+  console.log("========= ES6 rest operator =========")
   // with rest operator, the parameter receives remaining parameters via an Array
   function logAllArgumentsES6(...argumentsWithRest){
      console.log("With rest operator we have a real array ", argumentsWithRest);
@@ -96,9 +87,8 @@ console.log("ES6 with parameter" , numberAdditions(4,5));
        console.log("index is ", index);
      });
   }
-
-  logAllArguments('naim', 'latifi');
   logAllArgumentsES6('test1', 'test2');
+
 
   function gatherTheRestParameter(str1, ...rest){ // note the ...rest parameters must be at the end
     console.log(str1) // want to print only this one the rest give me the array
@@ -108,11 +98,14 @@ console.log("ES6 with parameter" , numberAdditions(4,5));
  gatherTheRestParameter("hello there Rest", 'nice to have you in array', 'cool stuff here');
 
 
+
+
+
+
 console.log("============ Spread operator ===============");
   // example 2
   let arr1 = [1,2,3];
   let arr2 = [4,5,6];
-  console.log(...arr1);
 
   //ES5 case scenario ========== comment out to test
   //arr1.push(arr1,arr2); // inside arr1 we will add arr1, arr2
@@ -122,7 +115,7 @@ console.log("============ Spread operator ===============");
 
   // ES6 array with spread operator
   arr1.push(...arr2);
-  console.log(arr1);
+  console.log("Array after spread", arr1);
 
   // concating array with javascriot
   var arr3 = ['a', 'b', 'c'];

@@ -14,6 +14,7 @@ console.log("================== Destructing objects ES6 =================");
 
     // accessing property on object with destructing ES6
     let { name, lastName } = personObject;
+    // name , lastName must match in personObject when destructing
   // what ES6 does here is that it assign name and lastName as variables as :
     // let name = personObject.name;
     // let lastName = personObject.lastName;
@@ -22,7 +23,7 @@ console.log("================== Destructing objects ES6 =================");
     console.log(lastName);
     // if there is no property on object that undefined is returned
     let {birthday} = personObject;
-    console.log(birthday);
+    console.log("Property does not exist we get undefined", birthday);
     // we can reasign the name of the key property
     let {name: anotherName} = personObject;
     console.log("Reasigned the name of the property", anotherName);
@@ -68,6 +69,7 @@ console.log("================== Destructing objects ES6 =================");
     // similar as destructing objects but we use square brackes instead []
     let myArrayData = ['1', '2', '3'];
     let [one] = myArrayData;
+    console.log("Element pulled away", one);
 
     // get the rest of parameters use spear operator with ...rest
     let [firstElementInArray, ...rest] = myArrayData;
@@ -82,14 +84,16 @@ console.log("================== Destructing objects ES6 =================");
     console.log("============ Destructing parameteters ===========")
     // ES5
     function destructParams(obj){
-      let myName = obj.name;
-      let  myLastName = obj.lastName;
+      let myName = obj.name; // duplicate  code obj,let
+      let myLastName = obj.lastName; // duplicate code obj, let
       console.log("ES5-My name is: ", myName , "And lastName is: ", myLastName);
     }
     destructParams(personObject);
 
     // ES6
     function destructParamsES6({name,lastName}){
+      // name and lastName must be mapped to the object property
+      // no code duplication with destructing
       console.log("ES6- My name is: ", name , "And lastName is: ", lastName);
     }
     destructParamsES6(personObject);
