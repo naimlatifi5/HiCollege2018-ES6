@@ -152,7 +152,7 @@ console.log(addToArray(10,20,30)); // passing parameter with rest operatopr
 // spread operator is the same but as rest but it differens when you use it
 
 let myArray = [1,2,3,4,5];
-console.log(...myArray); // spread and split the array
+console.log("Spread and split array", ...myArray); // spread and split the array
 
 
 // example with ...rest
@@ -165,7 +165,6 @@ function printName (name1, name2 , name3){
 printName.apply(null, objectNames);
 // with ES6 and rest operator
 printName(...objectNames); // shorter right ?
-
 
 // ...Spread operator
 let array1 = [1,2,3,4];
