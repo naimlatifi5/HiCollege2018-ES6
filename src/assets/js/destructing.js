@@ -69,7 +69,6 @@ console.log("================== Destructing objects ES6 =================");
 
     //console.log(a);
     //console.log(b);
-
     // swiping with ES6
     let c = 3;
     let d = 4;
