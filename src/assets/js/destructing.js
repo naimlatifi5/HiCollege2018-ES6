@@ -6,12 +6,14 @@
 console.log("================== Destructing objects ES6 =================");
     const personObject = {
         name: ' Naim',
-        lastName: "Latifi"
+        lastName: "Latifi",
+        education: {
+          university: "Linne University"
+        }
       };
 
     // accessing property on object with destructing ES6
     let { name, lastName } = personObject;
-
   // what ES6 does here is that it assign name and lastName as variables as :
     // let name = personObject.name;
     // let lastName = personObject.lastName;
@@ -21,12 +23,29 @@ console.log("================== Destructing objects ES6 =================");
     // if there is no property on object that undefined is returned
     let {birthday} = personObject;
     console.log(birthday);
-
+    // we can reasign the name of the key property
+    let {name: anotherName} = personObject;
+    console.log("Reasigned the name of the property", anotherName);
     // we can add parameters as in function for destructing object
     let {city  =  'Stockholm'} = personObject;
-    console.log(city);
+    console.log("Added city", city);
+    // destructing in the nested object
+    let {education: {university}} = personObject;
+    console.log("Destructing in nested object", university );
 
 
+
+
+    console.log("========= ES5 example to compare with destructing ========");
+    // ES5
+    const name1 = personObject.name;
+    const lastName1 = personObject.lastName;
+    console.log(name1);
+    console.log(lastName1);
+
+
+
+    console.log("======= Default parameters and destructing ========")
     // default valuue added to personObject
     const object1 = {
       cityName: "stockholm",
@@ -36,6 +55,9 @@ console.log("================== Destructing objects ES6 =================");
     // this works similarly as to functions with default params
     let {cityName, programmingLanguage, birthdayCity = 'stockholm'} = object1;
     console.log(object1);
+
+
+
 
 
 
@@ -53,9 +75,24 @@ console.log("================== Destructing objects ES6 =================");
     console.log("get the whole array- ", rest); // [1,2,3]
 
     // if we are interested to destruct only the particular item from array then we can do like this
-
+    // comma sepeartor is important to ignore all other items we are not interested for
     let [, , bringMeThirdElement ] = myArrayData;
     console.log("Third element from array " , bringMeThirdElement);
+
+    console.log("============ Destructing parameteters ===========")
+    // ES5
+    function destructParams(obj){
+      let myName = obj.name;
+      let  myLastName = obj.lastName;
+      console.log("ES5-My name is: ", myName , "And lastName is: ", myLastName);
+    }
+    destructParams(personObject);
+
+    // ES6
+    function destructParamsES6({name,lastName}){
+      console.log("ES6- My name is: ", name , "And lastName is: ", lastName);
+    }
+    destructParamsES6(personObject);
 
 
     // swiping variables ES5
@@ -69,10 +106,11 @@ console.log("================== Destructing objects ES6 =================");
 
     //console.log(a);
     //console.log(b);
+
+
     // swiping with ES6
     let c = 3;
     let d = 4;
-
     [c, d ] = [d, c];
     console.log(c);
     console.log(d);
