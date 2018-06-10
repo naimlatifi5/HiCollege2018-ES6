@@ -56,7 +56,8 @@ console.dir(myObjecClass.getClassName());
 
 
 
-console.log("===============Inheritance=============");
+
+console.log("===============Inheritance =============");
 
 class Father1 {
   constructor(name){
@@ -78,7 +79,7 @@ class Father1 {
 
 }
 
-
+console.log("========== ES5 inheritance ========")
 class Child3 extends Father1 {
     constructor(name,age){
      // no need for stealing constructor here instad we use super
@@ -105,3 +106,31 @@ console.log(secondChild.sayFathersName());
 console.log(secondChild.sayName());
 console.log(secondChild.getChildAge());
 console.log(secondChild.getAddresses());
+
+
+
+console.log("========== WITH ES5 inheritance==========")
+
+function Father1(name){
+  this.name = name;
+  this.fathersName = 'Anders';
+  this.addresses = ['Söderberga', 'Nacka'];
+}
+Father1.prototype.sayFatherName = function(){
+  console.log(this.fathersName);
+}
+
+function Child3(name, age){
+  // stealing constructor
+   Father1.call(this, name);
+   this.age = age;
+}
+// all properties
+Child3.prototype = new Father1();
+Child3.prototype.sayName = function(){
+  return this.name;
+}
+var firstChildES5 = new Child3('Joe', 22);
+console.log("First child ", firstChildES5);
+console.log(firstChildES5.sayFatherName());
+console.log(firstChildES5.sayName());
