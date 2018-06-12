@@ -7,6 +7,7 @@ console.log("============ Arrow function ============");
 var multipleNumber = function(num1, num2){
     return num1 * num2;
 };
+
 console.log('Multiplication is = ', multipleNumber(3,3));
 // ES6- shorter syntax , no need for function name and return value
 // expression after arrow is always return
@@ -17,6 +18,7 @@ console.log('Multiplication is = ', multipleNumber(3,3));
 
 let multipeNumberES6 = (num1, num2) => num1 * num2;
   console.log("Multiplication ES6 = " , multipeNumberES6(4,4));
+
 // whenever you have one expression you do not need curly braces see above otherwise if your code has multople lines with expression then use return and curly braces
 let multipleNumberES6 = (num1, num2) => {
   return num1 * num2;
@@ -28,6 +30,12 @@ let getDocument = _ => {
    console.log("Document element" , document);
 };
 getDocument();
+
+
+
+
+
+
 
 // arrow functions on arrays
 const phones = [
@@ -76,6 +84,9 @@ let filterByPrice = phones.filter(item => item.price == '3000kr');
 console.log("Filtered by price arrow function ES6 " , filterByPrice);
 
 
+
+
+
 const myModuleExample = {
   hi:'Hello data here',
   parseData:function(){
@@ -93,7 +104,7 @@ const myModuleExample = {
 
 const myModuleExampleES6 = {
   hi:'Hello ES6 and arrow function',
-  parseData:function() { // not arrow function because it redefined the scope of this to window global object
+  parseData: function(){ // not arrow function because it redefined the scope of this to window global object
     this.greeting((hellothere) => { // arrow will have as parent object so this is object
         console.log('Not global anymore', this.hi);
     });
@@ -128,11 +139,15 @@ var objectES5 = {
   },
 
   textToPrint: function(){
-   console.log(this.name);
+   console.log("ES5 property name ", this.name);
  }
 }
 
 objectES5.printWithDelay();
+
+
+
+
 
 
 // ES6 and arrow function
@@ -148,6 +163,12 @@ const objectES6 = {
   }
 }
 objectES6.printWithDelay();
+
+
+
+
+
+
 
 
 const objectButtonES6 = {
@@ -189,11 +210,16 @@ const objectButtonES5= {
 console.log("****************** End of arrow function **************");
 
 console.log("================ Where not to use arrow function ============");
-
 objectButtonES5.button.addEventListener('click', function(e){
   console.log("hello there");
   this.style.fontSize = '20px';
 });
+
+
+
+
+
+
 
 objectButtonES6.button.addEventListener('click',  (e) => {
    // if we can if this is === window - try in console- here will return undefined because of gulp and babel
@@ -219,26 +245,28 @@ console.log(profile.getName());
 const Profile = (name) => {
   this.name = name;
 }
+
 //let firstProfile = new Profile() // throw and error
 function Profile1(name){
   this.name = name;
+ 
 }
 
 
 // in prototype methods
 Profile1.prototype.displayName = function(){
-  console.log("This is my name-" , this.name);
+   return this.name;
 }
 
 
 var firstProfile1 = new Profile1("Hello there");
-console.log(firstProfile1.displayName());
+console.log("First profile ", firstProfile1.displayName());
 
 
 Profile1.prototype.displayNameArrowFunction = () => {
-    console.log("Value of this ", this);
-    console.log(window === this);
+
+    return this.name;
 }
 
 var secondProfile1 = new Profile1("With Arrow function");
-console.log(secondProfile1.displayNameArrowFunction());
+console.log("Second object", secondProfile1.displayNameArrowFunction());

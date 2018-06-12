@@ -16,7 +16,7 @@ function f(){
     const temp = 123; // shadow the value
     console.log("overided", temp);
   }
-  //console.log(temp); // temp is not defined because const are scoped to the block level
+  console.log(temp); // temp is not defined because const are scoped to the block level
 }
 // invoke the function
 f();
@@ -27,14 +27,13 @@ function letVariableScopeES6(){
      let temp = 123;
      // variables in with let are mutuable and can be changed
      temp = "hello you changed me";
-     console.log(temp);
+     //console.log(temp);
 
    }
    // temp outside  of the block is not defined
    //console.log(temp); // error blocked scoped is not defined
 }
 letVariableScopeES6();
-
 
 function varVariableES5(){
     if(true){

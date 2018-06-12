@@ -3,6 +3,10 @@ function params(name, lastName, birthday){
   console.log("Info : "  + name + lastName + birthday);
 }
 
+
+
+
+
 params ('Naim', 'Latifi', '8605225393');
 // default parameter if not givem
 params('Naim', 'Latifi'); // Naim Latifi undefined
@@ -20,6 +24,11 @@ function defaultParamsName(name , lastName, birthday){
    console.log(setName + lastName + birthday);
 }
 defaultParamsName('Latifi', '860522');
+
+
+
+
+
 
 console.log("========== ES6 default parameters =============");
 // ES6
@@ -51,9 +60,15 @@ console.log("ES6 with parameter" , numberAdditions(4,5));
 *                                           *
 **********************************************/
 
+
+
+
+
   console.log("========== Rest and spread ES5 vs ES6 ===========");
   // ES5;
   console.log("======= ES5 handling arguments =========");
+
+
   function logAllArguments(){
     console.log("Arguments in function log all argument ", arguments);
     console.log("type of arguments " , typeof arguments); // they are like array object but not real array and does not support methods and properties for an array
@@ -90,12 +105,17 @@ console.log("ES6 with parameter" , numberAdditions(4,5));
   logAllArgumentsES6('test1', 'test2');
 
 
+
+
+
   function gatherTheRestParameter(str1, ...rest){ // note the ...rest parameters must be at the end
-    console.log(str1) // want to print only this one the rest give me the array
-    console.log(rest);
+    console.log("Value of string ", str1) // want to print only this one the rest give me the array
+    console.log("Value of rest ", rest);
   }
 
  gatherTheRestParameter("hello there Rest", 'nice to have you in array', 'cool stuff here');
+
+
 
 
 
@@ -108,21 +128,26 @@ console.log("============ Spread operator ===============");
   let arr2 = [4,5,6];
 
   //ES5 case scenario ========== comment out to test
-  //arr1.push(arr1,arr2); // inside arr1 we will add arr1, arr2
+   //arr1.push(arr1,arr2); // inside arr1 we will add arr1, arr2
   // with apply we will add the context for arr1 to arr2 inside arr1
-  //arr1.push.apply(arr1,arr2); // result [1,2,3,4,5,6]
+   //arr1.push.concat(arr1,arr2); // result [1,2,3,4,5,6]
   //console.log(arr1);
 
   // ES6 array with spread operator
   arr1.push(...arr2);
   console.log("Array after spread", arr1);
 
+
+
+
+
+
   // concating array with javascriot
   var arr3 = ['a', 'b', 'c'];
   var arr4 = ['d', 'e','f'];
   // in ES6 with the use of spread function we can do like this
   const newArray = ['anotherValuewhatever', ...arr3, ...arr4]; // we can add other values to the array
-  console.log(newArray);
+  console.log("New array concat", newArray);
 
 //console.log(product(1,2,3,4,5));
 
@@ -135,7 +160,10 @@ function joinSpreadOperator(array1, array2){
 }
 
 console.log("Concat : ",  join(arr3, arr4));
-console.log("Spread: " , joinSpreadOperator(arr3, arr4));
+console.log("Spread: " , joinSpreadOperator(arr3, 'test'));
+
+
+
 
 function addToArray(...addTo){ // rest we want a list with arguments
   console.log("Array with rest operator" , addTo);
@@ -156,21 +184,25 @@ console.log("Spread and split array", ...myArray); // spread and split the array
 
 
 // example with ...rest
-const objectNames = ['Naim', 'Anders' , 'Joel'];
+const objectNames = ['Naim', 'Anders' , 'Joel', 'test'];
 function printName (name1, name2 , name3){
-  console.log(name2);
+  console.log("What is my name ? ", name3);
 }
+
+printName(...objectNames); // shorter right ?
+
 // what if we want to print only the first name by passing the objectName
 
 printName.apply(null, objectNames);
 // with ES6 and rest operator
-printName(...objectNames); // shorter right ?
+
+
 
 // ...Spread operator
 let array1 = [1,2,3,4];
 let array2 = ['a', 'b' ,'c'];
 // destructing with ...spread
-let [a, b , ...theRest] = array1;
-console.log(a);
-console.log(b);
-console.log(theRest);
+let [a, b, ...theRest] = array1;
+console.log("what is a ", a);
+console.log("what is b", b);
+console.log("What is rest ", theRest);

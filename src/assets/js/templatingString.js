@@ -5,7 +5,7 @@
 
 console.log("*********** Template literals ************");
 let myName = 'Naim';
-console.log(`Literal templates-Hello there template and ${myName} `);
+console.log(`Literal templates-Hello \`there\` template and ${myName} `);
 
 //ES6
 const myObectTemplate = {
@@ -26,6 +26,7 @@ let myMessageES5 = "Hello I am here because I want to learn " + myObectTemplate.
                    "from HiCollege here at " + myObectTemplate.hiCollege;
 
  console.log(myMessageES5);
+
 
 const objectArrays = [];
 const obje1 = {
@@ -48,6 +49,8 @@ const template = data =>`<div>
       <span>${item.lastName}</span>
       ` ).join('')}
   </div>`;
+
+
   // create an div element
   var divElement = document.createElement('div');
       divElement.classList.add('template-literal-ie6');
@@ -61,20 +64,26 @@ const template = data =>`<div>
   let myTaggedTemplate = String.raw `This is a multilne template string
    another example with tagged function \n and will not create a new line
   `;
-  console.log(myTaggedTemplate);
+  console.log("Tag template", myTaggedTemplate);
 
   function foo(strings, ...values) {
       console.log("Strings " , strings); // string value on template "hello there"
       console.log("Values" , values); // placeholders used in template (description)
   }
+  const myObject = {
+     description: '3'
+  }
 
-  let description = "awesome with tagged templates";
-  console.log(foo`Hello there ${description}`);
+  let description = myObject.descrition;
+  console.log(foo `Hello there template ${description}`);
+
 
  function tags(stringValue , ...values) {
      // implementation
+
      console.log(stringValue);
      console.log(values);
+
  }
 
  let number1 = 3

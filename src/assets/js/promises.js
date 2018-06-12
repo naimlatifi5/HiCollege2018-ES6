@@ -1,7 +1,3 @@
-//TODO- read article for promise https://www.datchley.name/es6-promises/
-
-
-
    // async example we call an callback with ES5 in order to do somethign with result
    function isGreaterThanES5(a, b, callback) {
      let greater = false;
@@ -25,6 +21,7 @@
    function callbackHell(){
       console.log('start!');
       setTimeout(function () {
+        return JSON.parse(response)
         console.log('ping');
         setTimeout(function () {
           console.log('pong');
@@ -148,7 +145,7 @@
         multiplePromisesInOne();
         console.log("========= Fetching users example ========");
         // make a request to fake rest api
-        getUserExample('https://jsonplaceholder.typicode.com/users/1')
+        getUserExample('https://jsonplaceholder1.typicode.com/users/1')
               .then((response) => {
                 // we return the data
                 return JSON.parse(response);

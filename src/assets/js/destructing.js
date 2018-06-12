@@ -19,8 +19,12 @@ console.log("================== Destructing objects ES6 =================");
     // let name = personObject.name;
     // let lastName = personObject.lastName;
     // console.log(name1, + lastName1);
-    console.log(name);
+    console.log("What is my name ", name);
     console.log(lastName);
+
+
+
+
     // if there is no property on object that undefined is returned
     let {birthday} = personObject;
     console.log("Property does not exist we get undefined", birthday);
@@ -46,6 +50,7 @@ console.log("================== Destructing objects ES6 =================");
 
 
 
+
     console.log("======= Default parameters and destructing ========")
     // default valuue added to personObject
     const object1 = {
@@ -61,15 +66,12 @@ console.log("================== Destructing objects ES6 =================");
 
 
 
-
-
-
-
    console.log("================ Destructing arrays in ES6 ==========");
     // similar as destructing objects but we use square brackes instead []
     let myArrayData = ['1', '2', '3'];
     let [one] = myArrayData;
     console.log("Element pulled away", one);
+    console.log("What is my array", myArrayData);
 
     // get the rest of parameters use spear operator with ...rest
     let [firstElementInArray, ...rest] = myArrayData;
@@ -97,6 +99,8 @@ console.log("================== Destructing objects ES6 =================");
       console.log("ES6- My name is: ", name , "And lastName is: ", lastName);
     }
     destructParamsES6(personObject);
+
+
 
 
     // swiping variables ES5
