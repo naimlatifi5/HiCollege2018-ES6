@@ -17,8 +17,20 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     babel = require('gulp-babel'),
+    browserSync = require('browser-sync'),
     del = require('del');
 
+
+var server = browserSync.create();
+// Static server
+gulp.task('browser-sync', function () {
+    server.init({
+        server: {
+            port: 8888,
+            baseDir: "./src/assets"
+        }
+    });
+});
 // Styles
 gulp.task('styles', function () {
     return gulp.src('src/assets/styles/**/*.scss', {
@@ -36,6 +48,7 @@ gulp.task('styles', function () {
             suffix: '.min'
         }))
         .pipe(gulp.dest('build/styles'))
+        .pipe(livereload())
         .pipe(notify({
             message: 'Styles task complete'
         }));
@@ -53,6 +66,7 @@ gulp.task('scripts', function () {
         }))
         .pipe(uglify())
         .pipe(gulp.dest('build/scripts'))
+        .pipe(livereload())
         .pipe(notify({
             message: 'Scripts task complete'
         }));
@@ -84,7 +98,7 @@ gulp.task('default', ['clean'], function () {
 
 // Watch
 gulp.task('watch', function () {
-
+    livereload.listen();
     // Watch .scss files
     gulp.watch('src/assets/styles/**/*.scss', ['styles']);
 
@@ -94,10 +108,7 @@ gulp.task('watch', function () {
     // Watch image files
     gulp.watch('src/assets/images/**/*', ['images']);
 
-    // Create LiveReload server
-    livereload.listen();
-
-    // Watch any files in dist/, reload on change
-    gulp.watch(['build/**']).on('change', livereload.changed);
+    // Watch any files in build/, reload on change
+    gulp.watch(['src/assets/**']).on('change', livereload.changed);
 
 });
