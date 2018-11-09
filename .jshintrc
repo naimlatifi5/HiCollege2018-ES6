@@ -1,0 +1,9 @@
+{
+    "globals": {
+        "$": false,
+        "jQuery": false,
+        "angular": false
+    },
+    "undef": true,
+    "esversion": 6
+}
