@@ -4,10 +4,6 @@ function params(name, lastName, birthday) {
   console.log("Info : " + name + lastName + birthday);
 }
 
-
-
-
-
 params('Naim', 'Latifi', '8605225393');
 // default parameter if not givem
 params('Naim', 'Latifi'); // Naim Latifi undefined
@@ -16,7 +12,6 @@ function defaultParamsBirthdayES5(name, lastName, birthday) {
   birthday = birthday || '19860522';
   console.log("Info:" + name + " " + lastName + " " + birthday);
 }
-
 //defaultParamsBirthdayES5('Naim', 'Latifi');
 defaultParamsBirthdayES5('Naim', 'Latifi', '860522');
 
@@ -25,8 +20,6 @@ function defaultParamsName(name, lastName, birthday) {
   console.log(setName + lastName + birthday);
 }
 defaultParamsName('Latifi', '860522');
-
-
 
 
 
@@ -56,19 +49,18 @@ function numberAdditionsES6(num1 = 0, num2 = 0) {
 console.log("ES6 without parameter", numberAdditionsES6());
 console.log("ES6 with parameter", numberAdditions(4, 5));
 
-/********************************************
- *        Rest parameter in  ES6               *
+
+
+
+
+/*********************************************
+ *        Rest parameter in  ES6             *
  *                                           *
- **********************************************/
-
-
-
-
+ *********************************************/
 
 console.log("========== Rest and spread ES5 vs ES6 ===========");
-// ES5;
-console.log("======= ES5 handling arguments =========");
 
+console.log("======= ES5 handling arguments =========");
 
 function logAllArguments() {
   console.log("Arguments in function log all argument ", arguments);
@@ -138,11 +130,6 @@ let arr2 = [4, 5, 6];
 arr1.push(...arr2);
 console.log("Array after spread", arr1);
 
-
-
-
-
-
 // concating array with javascriot
 var arr3 = ['a', 'b', 'c'];
 var arr4 = ['d', 'e', 'f'];
@@ -197,8 +184,6 @@ printName(...objectNames); // shorter right ?
 
 printName.apply(null, objectNames);
 // with ES6 and rest operator
-
-
 
 // ...Spread operator
 let array1 = [1, 2, 3, 4];
