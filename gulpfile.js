@@ -22,12 +22,13 @@ var gulp = require('gulp'),
 
 
 var server = browserSync.create();
-// Static server
+var reload = browserSync.reload;
+
+// Start browswer sync
 gulp.task('browser-sync', function () {
     server.init({
         server: {
-            port: 8888,
-            baseDir: "./src/assets"
+            proxy: "http://localhost/ecmascript6-es6/"
         }
     });
 });
@@ -39,16 +40,13 @@ gulp.task('styles', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest('build/styles'))
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(cssnano())
         .pipe(rename({
             basename: 'main',
             suffix: '.min'
         }))
         .pipe(gulp.dest('build/styles'))
-        .pipe(livereload())
+        .pipe(browserSync.stream())
         .pipe(notify({
             message: 'Styles task complete'
         }));
@@ -66,7 +64,7 @@ gulp.task('scripts', function () {
         }))
         .pipe(uglify())
         .pipe(gulp.dest('build/scripts'))
-        .pipe(livereload())
+        .pipe(browserSync.stream())
         .pipe(notify({
             message: 'Scripts task complete'
         }));
@@ -81,6 +79,7 @@ gulp.task('images', function () {
             interlaced: true
         })))
         .pipe(gulp.dest('build/images'))
+        .pipe(browserSync.stream())
         .pipe(notify({
             message: 'Images task complete'
         }));
@@ -91,14 +90,8 @@ gulp.task('clean', function () {
     return del(['build/styles', 'build/scripts', 'build/images']);
 });
 
-// Default task
-gulp.task('default', ['clean'], function () {
-    gulp.start('styles', 'scripts', 'images');
-});
-
 // Watch
-gulp.task('watch', function () {
-    livereload.listen();
+gulp.task('watch', ['browser-sync', 'styles', 'scripts', 'images'], function () {
     // Watch .scss files
     gulp.watch('src/assets/styles/**/*.scss', ['styles']);
 
@@ -111,4 +104,9 @@ gulp.task('watch', function () {
     // Watch any files in build/, reload on change
     gulp.watch(['src/assets/**']).on('change', livereload.changed);
 
+});
+
+// Default task
+gulp.task('default', ['browser-sync', 'styles', 'scripts', 'images', 'watch'], function () {
+    gulp.start('styles', 'scripts', 'images');
 });
