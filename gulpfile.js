@@ -57,11 +57,10 @@ gulp.task('scripts', function () {
     return gulp.src('src/assets/scripts/**/*.js')
         .pipe(babel())
         .pipe(jshint.reporter('default'))
-        .pipe(concat('main.js'))
         .pipe(gulp.dest('build/scripts'))
-        .pipe(rename({
-            suffix: '.min'
-        }))
+        //.pipe(rename({
+        //   suffix: '.min'
+        //}))
         .pipe(uglify())
         .pipe(gulp.dest('build/scripts'))
         .pipe(browserSync.stream())
