@@ -1,1 +1,144 @@
-.default_div{width:50px;height:50px;padding:20px;background-color:red;color:#fff;margin-top:40px}.links{padding:0;max-width:480px;margin:0 auto;list-style:none;width:100%}.links li{margin-bottom:20px;background:#757575;padding:15px}.links a{padding:10px;color:#fff;display:block}.links h2{color:#fff}.active-btn.active{background-color:green}.active-again{background-color:red;padding:20px}.content{text-align:center}.button{max-width:500px;width:100%;padding:20px;font-size:30px;color:#fff;margin-bottom:20px}.my-div{width:200px;height:200px;display:inline-flex;margin-right:10px;margin-bottom:10px;justify-content:center;align-items:center;position:relative;flex-direction:column;opacity:1;transition:opacity 5s}.my-div__text{font-size:20px}.my-div__close-button{position:absolute;right:-8px;top:-7px;width:20px;height:20px;text-align:center;font-size:16px;background:grey;border-radius:50%;cursor:pointer}.my-div__countNumberOfElements{font-size:8rem;color:#fff}body{font-family:Helvetica,Arial,sans-serif;font-size:12px}h1{text-align:center}section{margin-bottom:20px}section h3{font-size:15px}.list-container{max-width:800px;width:100%;margin:0 auto;border:0;list-style:none;padding:0}.list-container li{padding:10px;text-align:center;background-color:grey;color:#000;margin-bottom:10px}.list-container .red{background-color:red}.list-container .yellow{background-color:#ff0}.my-div{width:300px;height:300px;background-color:green;padding:10px}
+.default_div {
+    width: 50px;
+    height: 50px;
+    padding: 20px;
+    background-color: red;
+    color: #fff;
+    margin-top: 40px
+}
+
+.links {
+    padding: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    list-style: none;
+    width: 100%
+}
+
+.links li {
+    margin-bottom: 20px;
+    background: #757575;
+    padding: 15px
+}
+
+.links a {
+    padding: 10px;
+    display: block
+}
+
+.links a,
+.links h2 {
+    color: #fff
+}
+
+.active-btn.active {
+    background-color: green
+}
+
+.active-again {
+    background-color: red;
+    padding: 20px
+}
+
+.content,
+.wrapper-container {
+    text-align: center
+}
+
+.button {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 20px
+}
+
+.my-div {
+    width: 200px;
+    height: 200px;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    opacity: 1;
+    transition: opacity 5s
+}
+
+.my-div__text {
+    font-size: 20px
+}
+
+.my-div__close-button {
+    position: absolute;
+    right: -8px;
+    top: -7px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 16px;
+    background: grey;
+    border-radius: 50%;
+    cursor: pointer
+}
+
+.my-div__countNumberOfElements {
+    font-size: 8rem;
+    color: #fff
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px
+}
+
+h1 {
+    text-align: center
+}
+
+section {
+    margin-bottom: 20px
+}
+
+section h3 {
+    font-size: 15px
+}
+
+.list-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    border: 0;
+    list-style: none;
+    padding: 0
+}
+
+.list-container li {
+    padding: 10px;
+    text-align: center;
+    background-color: grey;
+    color: #000;
+    margin-bottom: 10px
+}
+
+.list-container .red {
+    background-color: red
+}
+
+.list-container .yellow {
+    background-color: #ff0
+}
+
+.my-div {
+    width: 300px;
+    height: 300px;
+    background-color: green;
+    padding: 10px
+}
