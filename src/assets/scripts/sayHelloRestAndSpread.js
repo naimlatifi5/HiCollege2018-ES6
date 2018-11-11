@@ -98,19 +98,12 @@ function logAllArgumentsES6(...argumentsWithRest) {
 logAllArgumentsES6('test1', 'test2');
 
 
-
-
-
 function gatherTheRestParameter(str1, ...rest) { // note the ...rest parameters must be at the end
   console.log("Value of string ", str1) // want to print only this one the rest give me the array
   console.log("Value of rest ", rest);
 }
 
 gatherTheRestParameter("hello there Rest", 'nice to have you in array', 'cool stuff here');
-
-
-
-
 
 
 
