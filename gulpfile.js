@@ -47,9 +47,7 @@ gulp.task('styles', function () {
         }))
         .pipe(gulp.dest('build/styles'))
         .pipe(browserSync.stream())
-        .pipe(notify({
-            message: 'Styles task complete'
-        }));
+
 });
 
 // Scripts
@@ -64,9 +62,7 @@ gulp.task('scripts', function () {
         .pipe(uglify())
         .pipe(gulp.dest('build/scripts'))
         .pipe(browserSync.stream())
-        .pipe(notify({
-            message: 'Scripts task complete'
-        }));
+
 });
 
 // Images
@@ -79,9 +75,7 @@ gulp.task('images', function () {
         })))
         .pipe(gulp.dest('build/images'))
         .pipe(browserSync.stream())
-        .pipe(notify({
-            message: 'Images task complete'
-        }));
+
 });
 
 // Clean
