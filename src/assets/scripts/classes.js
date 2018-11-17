@@ -1,18 +1,20 @@
 console.log("*********** From cunstructors to classes ***************");
 
+console.log("========== Prototypes with ES5========");
+
 function Person(name) {
   this.name = `Hello from constructor function ${name}`;
 }
 Person.prototype.displayName = function () {
   return this.name;
 }
-
 let person1 = new Person('Naim');
 console.log(person1.displayName());
 console.log("Is instance of Person ? ", person1 instanceof Person);
 
 
-console.log("============== Classes ==============");
+
+console.log("============== Classes with ES6 ==============");
 // class declarationd 
 class Person1 {
   // equivalent to the constructor function Person
@@ -33,31 +35,9 @@ console.log(typeof Person1) // function
 console.log("Is it instance of class Person1 ?", person2 instanceof Person1);
 
 
-// similarly to function declaration there can be two kinds of class declaration ; class expression and class declaration
-
-// class expression - anonymous
-const myClass1 = class {
-
-}
-
-// class expression with name
-
-const myClass2 = class Me {
-  getClassName() {
-    console.log(typeof Me);
-    return Me.name;
-  }
-}
-
-const myObjecClass = new myClass2();
-console.dir(myObjecClass.getClassName());
-//console.log(Me.name) // error and cannot access outside
-
-
 
 
 console.log("===============Inheritance =============");
-
 class Father1 {
   constructor(name) {
     this.fatherName = "Anders";
@@ -78,7 +58,7 @@ class Father1 {
 
 }
 
-console.log("========== ES5 inheritance ========")
+console.log("========== ES6 inheritance ========")
 class Child3 extends Father1 {
   constructor(name, age) {
     // no need for stealing constructor here instad we use super
@@ -110,22 +90,22 @@ console.log(secondChild.getAddresses());
 
 console.log("========== WITH ES5 inheritance==========")
 
-function Father1(name) {
+function Father2(name) {
   this.name = name;
   this.fathersName = 'Anders';
-  this.addresses = ['Söderberga', 'Nacka'];
+  this.addresses = ['Soderberga', 'Nacka'];
 }
-Father1.prototype.sayFatherName = function () {
+Father2.prototype.sayFatherName = function () {
   console.log(this.fathersName);
 }
 
 function Child3(name, age) {
   // stealing constructor
-  Father1.call(this, name);
+  Father2.call(this, name);
   this.age = age;
 }
 // all properties
-Child3.prototype = new Father1();
+Child3.prototype = new Father2();
 Child3.prototype.sayName = function () {
   return this.name;
 }
