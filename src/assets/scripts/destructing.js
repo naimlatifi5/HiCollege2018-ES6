@@ -17,6 +17,7 @@ let {
   name,
   lastName
 } = personObject;
+
 // name , lastName must match in personObject when destructing
 // what ES6 does here is that it assign name and lastName as variables as :
 // let name = personObject.name;
@@ -24,6 +25,8 @@ let {
 // console.log(name1, + lastName1);
 console.log("What is my name ", name);
 console.log(lastName);
+
+
 
 
 
@@ -39,6 +42,8 @@ let {
 } = personObject;
 console.log("Reasigned the name of the property", anotherName);
 // we can add parameters as in function for destructing object
+
+
 let {
   city = 'Stockholm'
 } = personObject;
@@ -52,8 +57,6 @@ let {
 console.log("Destructing in nested object", university);
 
 
-
-
 console.log("========= ES5 example to compare with destructing ========");
 // ES5
 const name1 = personObject.name;
@@ -61,23 +64,6 @@ const lastName1 = personObject.lastName;
 console.log(name1);
 console.log(lastName1);
 
-
-
-
-console.log("======= Default parameters and destructing ========")
-// default valuue added to personObject
-const object1 = {
-  cityName: "stockholm",
-  programmingLanguage: "JS"
-}
-// if there is no property in object default value is provided like birthdayCity,
-// this works similarly as to functions with default params
-let {
-  cityName,
-  programmingLanguage,
-  birthdayCity = 'stockholm'
-} = object1;
-console.log(object1);
 
 
 
@@ -90,17 +76,20 @@ let [one] = myArrayData;
 console.log("Element pulled away", one);
 console.log("What is my array", myArrayData);
 
-// get the rest of parameters use spear operator with ...rest
+// get the rest of parameters use spread operator with ...rest
 let [firstElementInArray, ...rest] = myArrayData;
 console.log("First element on array ", firstElementInArray);
-console.log("get the whole array- ", rest); // [1,2,3]
+console.log("The rest get as array- ", rest); // [2,3]
 
 // if we are interested to destruct only the particular item from array then we can do like this
 // comma sepeartor is important to ignore all other items we are not interested for
 let [, , bringMeThirdElement] = myArrayData;
 console.log("Third element from array ", bringMeThirdElement);
 
-console.log("============ Destructing parameteters ===========")
+
+
+
+console.log("============ Destructing parameters ES5 ===========")
 // ES5
 function destructParams(obj) {
   let myName = obj.name; // duplicate  code obj,let
@@ -109,6 +98,7 @@ function destructParams(obj) {
 }
 destructParams(personObject);
 
+console.log("============ Destructing parameters ES6")
 // ES6
 function destructParamsES6({
   name,
@@ -121,8 +111,7 @@ function destructParamsES6({
 destructParamsES6(personObject);
 
 
-
-
+console.log("===========Swiping files ES5 ==============")
 // swiping variables ES5
 let a = 1;
 let b = 2;
@@ -132,13 +121,13 @@ temp = a;
 a = b;
 b = temp;
 
-//console.log(a);
-//console.log(b);
+console.log("What is a ", a);
+console.log("What is b ", b);
 
-
+console.log("========== Swiping files with ES6 ========== ");
 // swiping with ES6
 let c = 3;
 let d = 4;
 [c, d] = [d, c];
-console.log(c);
-console.log(d);
+console.log("What is c ", c);
+console.log("What is d ", d);
