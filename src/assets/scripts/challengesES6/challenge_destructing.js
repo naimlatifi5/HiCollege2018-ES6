@@ -25,6 +25,6 @@ console.log(findLength); // should be using destructuring
 // Destruct the following arrays so that it prints result as in console
 let source = [1, 2, 3, 4, 5, 6, 7, 8];
 
-console.log(arr) // result should be [3,4,5,6,7,8]
-console.log(source); // result should be [1,2,3,4,5,6,7,8]
-console.log(g) // result should be 7
+//console.log(arr) // result should be [3,4,5,6,7,8]
+//console.log(source); // result should be [1,2,3,4,5,6,7,8]
+//console.log(g) // result should be 7
