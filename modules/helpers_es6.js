@@ -1,8 +1,6 @@
-// some of the code helpers here
-
 const taxRate = 0.13;
 
-const couponCodes = ['BLACKFRIDAY', 'FREESHIP', 'HOHOHO'];
+// const couponCodes = ['BLACKFRIDAY', 'FREESHIP', 'HOHOHO'];
 
 function formatPrice(price) {
     // .. do some formatting
@@ -28,10 +26,11 @@ const helloWorld = () => {
 
 // export all at once
 
-module.exports = {
-    couponCodes: couponCodes,
-    formatPrice: formatPrice,
-    addTax: addTax,
-    discountPrice: discountPrice,
-    helloWorld: helloWorld
+export {
+    taxRate,
+    formatPrice,
+    addTax,
+    discountPrice,
+    helloWorld
+
 }
