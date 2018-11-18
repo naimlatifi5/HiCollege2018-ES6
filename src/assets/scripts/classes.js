@@ -99,17 +99,17 @@ Father2.prototype.sayFatherName = function () {
   console.log(this.fathersName);
 }
 
-function Child3(name, age) {
+function Child2(name, age) {
   // stealing constructor
   Father2.call(this, name);
   this.age = age;
 }
-// all properties
-Child3.prototype = new Father2();
-Child3.prototype.sayName = function () {
+// // all properties
+Child2.prototype = new Father2();
+Child2.prototype.sayName = function () {
   return this.name;
 }
-var firstChildES5 = new Child3('Joe', 22);
+let firstChildES5 = new Child2('Joe', 22);
 console.log("First child ", firstChildES5);
 console.log(firstChildES5.sayFatherName());
 console.log(firstChildES5.sayName());
