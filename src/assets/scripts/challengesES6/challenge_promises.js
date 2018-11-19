@@ -36,3 +36,30 @@ function getUserExample(url) {
 }
 
 console.log("=============== My solution ==============");
+getUserExample(user1)
+    .then((response) => {
+        // we return the data
+        return JSON.parse(response);
+    }).then(({
+        name,
+        email,
+        website
+    }) => {
+        // we build the template to show the data
+        let template = '';
+        template += `
+           <div class="user-data">
+             <p>${name}</p>
+             <p>${email}</p>
+             <p>${website}</p>
+           </div>
+          `;
+        document.getElementById('appendUserData').innerHTML = template;
+        // we want to return a new promise but with another user
+        return getUserExample(user2)
+    }).then((responseUser2) => {
+        console.log(JSON.parse(responseUser2));
+    }).catch((error) => {
+        // change url request to something else to get a  catch erorr
+        console.log("Something went wrong", error);
+    })
