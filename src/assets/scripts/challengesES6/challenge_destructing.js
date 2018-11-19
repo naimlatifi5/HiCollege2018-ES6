@@ -15,7 +15,6 @@ const obj = {
 const greeting = 'HelloHiQ'
 /* Alter code below this line */
 const findLength = 0; // change this
-
 // your solution here...
 console.log(findLength); // should be using destructuring
 

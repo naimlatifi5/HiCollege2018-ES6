@@ -5,14 +5,7 @@
 // 1. Alert the the code below this line
 // Crate the Class so that you can create other objects such 'volvo' from the crated class
 //let Car = undefined;
-class Car {
-    constructor(name) {
-        this.name = name;
-    }
-    model(type) {
-        return `I have an ${type} model`;
-    }
-}
+
 
 const volvo = new Car('Volvo');
 console.log(volvo.name) // => should print 'Volvo'
