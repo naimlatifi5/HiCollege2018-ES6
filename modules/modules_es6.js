@@ -12,14 +12,25 @@ nameSpace.module1 = function () {
 console.log(nameSpace);
 console.log(nameSpace.module1);
 
+
+
+
+
+
+
 // import only two bindings
 console.log("============ ES6 modules ============");
 import {
   taxRate,
   helloWorld
 } from './helpers_es6.js';
+
 console.log("couponCodes example imported here ", taxRate);
 console.log(helloWorld());
+
+
+
+
 
 // // we can also import the complete module
 import * as helpers from './helpers_es6.js';
@@ -29,6 +40,8 @@ console.log(helpers);
 import {
   helloWorld as myHelloWorld
 } from './helpers_es6.js';
+
+
 console.log(myHelloWorld());
 
 // importing default function 
